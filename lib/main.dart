@@ -10,11 +10,46 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Simple Translator',
+      title: 'Word Bridge',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: TranslatorHomePage(),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 100,
+        title: Text(
+          "Welcome To Word Bridge!!",
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple,
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TranslatorHomePage()),
+            );
+          },
+          child: Text("Start Translating..."),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+            textStyle: TextStyle(fontSize: 18),
+          ),
+        ),
+      ),
     );
   }
 }

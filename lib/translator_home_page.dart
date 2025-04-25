@@ -17,7 +17,7 @@ class _TranslatorHomePageState extends State<TranslatorHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Simple Translator',
+          'Word Bridge',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -26,8 +26,8 @@ class _TranslatorHomePageState extends State<TranslatorHomePage> {
         ),
         centerTitle: true,
         backgroundColor: Colors.deepPurple,
+        iconTheme: IconThemeData(color: Colors.white), // <-- Back arrow in white
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(5.0),
@@ -46,7 +46,8 @@ class _TranslatorHomePageState extends State<TranslatorHomePage> {
                       setState(() {
                         fromLanguage = value!;
                         if (fromLanguage == toLanguage) {
-                          toLanguage = fromLanguage == 'English' ? 'Bangla' : 'English';
+                          toLanguage =
+                          fromLanguage == 'English' ? 'Bangla' : 'English';
                         }
                       });
                     },
@@ -63,7 +64,8 @@ class _TranslatorHomePageState extends State<TranslatorHomePage> {
                       setState(() {
                         toLanguage = value!;
                         if (fromLanguage == toLanguage) {
-                          fromLanguage = toLanguage == 'English' ? 'Bangla' : 'English';
+                          fromLanguage =
+                          toLanguage == 'English' ? 'Bangla' : 'English';
                         }
                       });
                     },
@@ -91,7 +93,8 @@ class _TranslatorHomePageState extends State<TranslatorHomePage> {
                 onPressed: () {
                   if (inputText.trim().isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Please enter some text to translate")),
+                      SnackBar(
+                          content: Text("Please enter some text to translate")),
                     );
                   } else {
                     setState(() {
@@ -134,7 +137,8 @@ class _TranslatorHomePageState extends State<TranslatorHomePage> {
                     icon: Icon(Icons.copy, color: Colors.deepPurple),
                     onPressed: () {
                       if (translatedText.trim().isNotEmpty) {
-                        Clipboard.setData(ClipboardData(text: translatedText));
+                        Clipboard.setData(
+                            ClipboardData(text: translatedText));
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text("Translation copied!")),
                         );
